@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'PhotoDetailPage.dart';
 import 'apiResponseModalClass.dart';
 
 class Homepage extends StatefulWidget {
@@ -40,7 +41,7 @@ class _HomepageState extends State<Homepage> {
 
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 4,
                 crossAxisSpacing: 8,
                 mainAxisSpacing: 8,
               ),
@@ -49,17 +50,21 @@ class _HomepageState extends State<Homepage> {
                 final photo = photos[index];
                 return GestureDetector(
                   onTap: () {
-                    // You can add a functionality like opening the photo URL in a browser
-                    print('Photo URL: ${photo.url}');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PhotoDetailPage(photo: photo),
+                      ),
+                    );
                   },
                   child: GridTile(
-                    child: Image.network(
-                      photo.imageUrl,
-                      fit: BoxFit.cover,
-                    ),
                     footer: GridTileBar(
                       backgroundColor: Colors.black54,
                       title: Text(photo.photographer),
+                    ),
+                    child: Image.network(
+                      photo.imageUrl,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 );

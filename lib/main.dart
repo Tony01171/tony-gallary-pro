@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled2/login_Page.dart';
 
+import 'SpleshPage.dart';
+import 'homePage.dart';
+
 void main() {
   runApp(const Abc());
 }
@@ -21,7 +24,7 @@ class _AbcState extends State<Abc> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPAge()
+      home: SplashScreen()
     );
   }
 }
