@@ -69,7 +69,7 @@ class PhotoDetailPage extends StatelessWidget {
           Expanded(
             child: Image.network(
               photo.imageUrl,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
               width: double.infinity,
             ),
           ),
